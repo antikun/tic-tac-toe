@@ -1,6 +1,6 @@
 const gameBoard = (() => {
     const rows = [
-        ['x', 'x', 'o'], ['x', 'o', 'o'], ['o', 'x', 'x']
+        ['', '', ''], ['', '', ''], ['', '', '']
     ];
     const getRows = () => {
         return rows;
@@ -42,17 +42,29 @@ const player = ((name, mark) => {
 const player1 = player('Mitko', 'x');
 const player2 = player('Ida', 'o');
 
-const playGame = (() => {
-
-
-
+const displayMoves = (() => {
     const board = document.querySelector('.gameboard');
+    let turns = 1;
     board.addEventListener('click', (e) => {
         e.preventDefault();
+        console.log(turns)
         const row = e.target.dataset.rowIndex;
         const index = e.target.dataset.cellIndex;
-        const newMark = gameBoard.populateCells(row, index, player1.getMark());
-        e.target.textContent = newMark;
+        let mark;
+        if (turns % 2 === 0) {
+            mark = player2.getMark();
+        } else {
+            mark = player1.getMark();
+        }
+
+        if (e.target.textContent) {
+            return;
+        } else {
+            turns++;
+            const newMark = gameBoard.populateCells(row, index, mark);
+            e.target.textContent = newMark;
+        }
+
     })
 })();
 
