@@ -12,7 +12,15 @@
 <body>
     <h1>Tic Tac Toe</h1>
 
-    <div class="gameboard"></div>
+    <form class="form-container" action="#">
+        <label for="player1" class="label">Player 1:</label>
+        <input id="player1" type="text" class="player-name">
+        <label for="player2" class="label">Player 2:</label>
+        <input id="player2" type="text" class="player-name">
+        <button class="start-btn">Start Game</button>
+    </form>
+
+    <div class="gameboard no-display"></div>
 
 
     <script src="./script.js"></script>

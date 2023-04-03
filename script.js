@@ -42,12 +42,34 @@ const player = ((name, mark) => {
 const player1 = player('Mitko', 'x');
 const player2 = player('Ida', 'o');
 
+// const game = (() => {
+//     const userInput = {
+//         name: {
+//             player1: 
+//         }
+//     }
+//     const gameData = {
+//         turns: 1,
+
+//     }
+// })
+
+const startBtn = document.querySelector(".start-btn");
+startBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    const form = document.querySelector(".form-container");
+    const gameBoard = document.querySelector(".gameboard");
+
+    form.classList.add("no-display");
+    gameBoard.classList.remove("no-display");
+})
+
+
 const displayMoves = (() => {
     const board = document.querySelector('.gameboard');
     let turns = 1;
     board.addEventListener('click', (e) => {
         e.preventDefault();
-        console.log(turns)
         const row = e.target.dataset.rowIndex;
         const index = e.target.dataset.cellIndex;
         let mark;
@@ -64,7 +86,7 @@ const displayMoves = (() => {
             const newMark = gameBoard.populateCells(row, index, mark);
             e.target.textContent = newMark;
         }
-
     })
 })();
+
 

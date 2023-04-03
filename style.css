@@ -1,3 +1,9 @@
+:root {
+    --spacing-lg: 32px;
+    --spacing-md: 16px;
+    --spacing-sm: 8px;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -6,6 +12,17 @@ body {
     justify-content: center;
     align-items: center;
     width: 100%;
+}
+
+/* FORM */
+.form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    border: 2px solid black;
+    padding: var(--spacing-md) var(--spacing-lg);
+    gap: var(--spacing-sm);
 }
 
 .gameboard {
@@ -24,4 +41,9 @@ body {
     align-items: center;
     font-size: 20px;
     text-transform: uppercase;
+}
+
+.gameboard.no-display,
+.form-container.no-display {
+    display: none;
 }
